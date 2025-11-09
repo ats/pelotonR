@@ -19,7 +19,7 @@ authenticate <- function(username, password) {
   }
 
   body <- paste0("{\"username_or_email\":\"", username, "\",\"password\":\"", password, "\"}")
-  request <- httr::POST("https://api.onepeloton.com/auth/login", body = body)
+  request <- httr::POST("https://api.onepeloton.com/auth/login?=", body = body)
   results <- jsonlite::prettify(rawToChar(request$content))
   return(results)
 }
